@@ -6,7 +6,7 @@ from gliner import GLiNER
 class GLiNERProcessor:
     """Runs entity prediction with a loaded GLiNER model."""
 
-    def __init__(self, model_name: str = "urchade/gliner_base") -> None:
+    def __init__(self, model_name: str = "urchade/gliner_small-v1") -> None:
         self._model = GLiNER.from_pretrained(model_name)
 
     def predict_entities(self, text: str, labels: list[str]) -> list[dict]:
