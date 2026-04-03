@@ -3,3 +3,4 @@ gliner
 beautifulsoup4
 python-multipart
 uvicorn
+huggingface_hub
