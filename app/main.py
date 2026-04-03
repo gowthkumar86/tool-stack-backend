@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import gliner
+
+from app.modules.router_registry import FEATURE_ROUTERS
 
 app = FastAPI()
 
@@ -13,9 +14,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routes
-app.include_router(gliner.router, prefix="/extract", tags=["GLiNER"])
+# Feature routes
+for router in FEATURE_ROUTERS:
+    app.include_router(router)
+
 
 @app.get("/")
-def root():
-    return {"message": "Toolstack Backend Running 🚀"}
+def root() -> dict[str, str]:
+    return {"message": "Toolstack Backend Running"}

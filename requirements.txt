@@ -1,0 +1,5 @@
+fastapi
+gliner
+beautifulsoup4
+python-multipart
+uvicorn
